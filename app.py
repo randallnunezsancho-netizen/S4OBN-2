@@ -288,7 +288,7 @@ with st.sidebar:
     # 1. Logo de la UIA
     logo_path = "Logo-solo- UIA.png"
     if os.path.exists(logo_path):
-        st.image(logo_path, use_container_width=True)
+        st.image(logo_path, width="stretch")
     else:
         st.markdown("### 🏛️ **U.I.A.**")
         st.caption("Universidad Internacional de las Américas")
@@ -573,7 +573,7 @@ with tab2:
     fig_hist.update_yaxes(title_text="Deuda Pública (% PIB)", row=2, col=1, showgrid=True, gridcolor="rgba(148, 163, 184, 0.2)")
     fig_hist.update_xaxes(showgrid=True, gridcolor="rgba(148, 163, 184, 0.15)")
     
-    st.plotly_chart(fig_hist, use_container_width=True)
+    st.plotly_chart(fig_hist, width="stretch")
     
     col_d1, col_d2 = st.columns(2)
     with col_d1:
