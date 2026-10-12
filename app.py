@@ -72,12 +72,13 @@ st.markdown("""
     }
     
     .card-box {
-        background-color: #ffffff;
-        border: 1px solid #e2e8f0;
+        background-color: #1e293b;
+        border: 1px solid #334155;
         border-radius: 14px;
         padding: 1.4rem;
         margin-bottom: 1.2rem;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        color: #f8fafc;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
     
     .stProgress > div > div > div > div {
@@ -85,20 +86,33 @@ st.markdown("""
     }
     
     .metric-container {
-        background: #f8fafc;
-        border-left: 4px solid #134074;
-        padding: 12px 16px;
-        border-radius: 0 10px 10px 0;
-        margin: 10px 0;
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-left: 5px solid #38bdf8;
+        padding: 16px 20px;
+        border-radius: 8px;
+        margin: 12px 0;
+        color: #f8fafc;
+    }
+    
+    .metric-container strong {
+        color: #38bdf8;
+        font-size: 1.05rem;
+    }
+    
+    .metric-container em {
+        color: #93c5fd;
     }
     
     .quote-box {
-        background: #f1f5f9;
-        border-left: 4px solid #64748b;
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-left: 4px solid #f59e0b;
         font-style: italic;
-        padding: 10px 14px;
-        border-radius: 4px;
+        padding: 12px 16px;
+        border-radius: 6px;
         margin: 10px 0;
+        color: #e2e8f0;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -550,11 +564,14 @@ with tab2:
     fig_hist.add_vrect(x0=1970, x1=1980, fillcolor="rgba(16, 185, 129, 0.1)", line_width=0, row=1, col=1, annotation_text="1970s (Préstamos bancarios)", annotation_position="top left")
     
     fig_hist.update_layout(
-        height=520,
-        margin=dict(l=40, r=30, t=40, b=30),
-        legend=dict(orientation="h", yanchor="bottom", y=1.05, xanchor="center", x=0.5),
+        height=700,
+        margin=dict(l=60, r=40, t=50, b=40),
+        legend=dict(orientation="h", yanchor="bottom", y=1.04, xanchor="center", x=0.5),
         hovermode="x unified"
     )
+    fig_hist.update_yaxes(title_text="Variación Anual (%)", row=1, col=1, showgrid=True, gridcolor="rgba(148, 163, 184, 0.2)")
+    fig_hist.update_yaxes(title_text="Deuda Pública (% PIB)", row=2, col=1, showgrid=True, gridcolor="rgba(148, 163, 184, 0.2)")
+    fig_hist.update_xaxes(showgrid=True, gridcolor="rgba(148, 163, 184, 0.15)")
     
     st.plotly_chart(fig_hist, use_container_width=True)
     
